@@ -17,7 +17,7 @@
                     @forelse ($comics as $comic)
                         <tr>
                             {{-- <td> <a href="{{ route('comic.show', $comic->id)}} ">  {{$comic->name}} </a></th> --}}
-                            <td>{{$comic->title}}</td>
+                            <td><a href="{{ route('comic.show', $comic->id)}} ">  {{$comic->title}} </a></td>
                             <td>{{$comic->description}}</td>
                             <td>{{$comic->writer}}</td>
                             {{-- <td><a href="{{ route('comic.edit', $comic->id) }}" class="btn-sm"><i class="fas fa-edit"></i></a></td> --}}

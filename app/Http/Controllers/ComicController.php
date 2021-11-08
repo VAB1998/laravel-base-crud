@@ -46,9 +46,9 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Comic $comic) //
+    public function show(Comic $comic) //Dependency injection: Se al posto di $id, come parametro della funzione show(), passiamo un’istanza del Model, esso corrisponderà al record con id uguale a quello passato tramite la URI.
     {
-        //
+        return view('comics.show', compact('comic'));
     }
 
     /**
