@@ -5,6 +5,7 @@
 @section('content')
     <section id="comics_index">
         <div class="container">
+            <a href="{{ route("comics.create") }}" class="btn btn-primary ms-2">Add a New Comic</a>
             <table class="table table-dark table-striped table-bordered">
                 <thead>
                     <tr>
@@ -16,8 +17,7 @@
                 <tbody>
                     @forelse ($comics as $comic)
                         <tr>
-                            {{-- <td> <a href="{{ route('comic.show', $comic->id)}} ">  {{$comic->name}} </a></th> --}}
-                            <td><a href="{{ route('comic.show', $comic->id)}} ">  {{$comic->title}} </a></td>
+                            <td><a href="{{ route('comics.show', $comic->id)}} ">  {{$comic->title}} </a></td>
                             <td>{{$comic->description}}</td>
                             <td>{{$comic->writer}}</td>
                             {{-- <td><a href="{{ route('comic.edit', $comic->id) }}" class="btn-sm"><i class="fas fa-edit"></i></a></td> --}}
