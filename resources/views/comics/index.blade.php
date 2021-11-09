@@ -12,6 +12,7 @@
                         <th scope="col">Title</th>
                         <th scope="col">Description</th>
                         <th scope="col">Writer</th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -20,7 +21,8 @@
                             <td><a href="{{ route('comics.show', $comic->id)}} ">  {{$comic->title}} </a></td>
                             <td>{{$comic->description}}</td>
                             <td>{{$comic->writer}}</td>
-                            {{-- <td><a href="{{ route('comic.edit', $comic->id) }}" class="btn-sm"><i class="fas fa-edit"></i></a></td> --}}
+                            {{-- Edit --}}
+                            <td><a href="{{ route('comics.edit', $comic->id)}} "> Edit </a></td>
                         </tr>    
                     @empty
                         <tr>

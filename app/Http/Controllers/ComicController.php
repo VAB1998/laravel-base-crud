@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comic;
+use App\User;
 use Illuminate\Http\Request;
 
 
@@ -43,7 +44,7 @@ class ComicController extends Controller
         $comic = new Comic;
         $comic = Comic::create($data);
         $comic->save();
-        // return view('comics.show', $comic);
+
         return redirect()->route('comics.show', $comic);
     }
 
@@ -64,9 +65,9 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Comic $comic)
     {
-        //
+        return view('comics.edit', compact('comic'));
     }
 
     /**
@@ -76,9 +77,13 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Comic $comic)
     {
-        //
+        $data = $request->all();
+
+        $comic->update($data);
+
+        return redirect()->route('comics.show', $comic);
     }
 
     /**
