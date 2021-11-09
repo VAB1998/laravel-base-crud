@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comic;
-use App\User;
 use Illuminate\Http\Request;
 
 
@@ -41,7 +40,6 @@ class ComicController extends Controller
         $data = $request->all();
         // dd($data);
 
-        $comic = new Comic;
         $comic = Comic::create($data);
         $comic->save();
 
@@ -92,8 +90,10 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Comic $comic)
     {
-        //
+        $comic->delete();
+
+        return redirect()->route('comics.index');
     }
 }

@@ -13,6 +13,7 @@
                         <th scope="col">Description</th>
                         <th scope="col">Writer</th>
                         <th scope="col"></th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -23,6 +24,18 @@
                             <td>{{$comic->writer}}</td>
                             {{-- Edit --}}
                             <td><a href="{{ route('comics.edit', $comic->id)}} "> Edit </a></td>
+                            
+                            
+                            {{-- Delete --}}
+                            <td>
+                                <form action="{{ route('comics.destroy', $comic->id) }}" method="post">
+                                    
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit">D</button>
+                                </form>
+                            </td>
+
                         </tr>    
                     @empty
                         <tr>
