@@ -26,7 +26,7 @@ class AddTimestampToComicsTable extends Migration
     public function down()
     {
         Schema::table('comics', function (Blueprint $table) {
-            $table->timestamps();
+            $table->dropTimestamps();
         });
     }
 }

@@ -5,6 +5,7 @@
 @section('content')
     <section id="comics_index">
         <div class="container">
+            {{-- Create --}}
             <a href="{{ route("comics.create") }}" class="btn btn-primary ms-2">Add a New Comic</a>
             <table class="table table-dark table-striped table-bordered">
                 <thead>
